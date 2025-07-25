@@ -1,8 +1,41 @@
-def is_leap_year(year):
-    """Check if a year is a leap year."""
-    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
-        return True
-    return False
+import art
+print(art.logo)
 
-print(is_leap_year(2020))  # True
-print(is_leap_year(2021))  # False
+def add(n1, n2):
+    return n1 + n2
+def subtract(n1, n2):
+    return n1 - n2
+def multiply(n1, n2):
+    return n1 * n2
+def divide(n1, n2):
+    if n2 != 0:
+        return n1 / n2
+    return None
+operations = {
+    "+": add,
+    "-": subtract,
+    "*": multiply,
+    "/": divide
+}
+#print(operations ["*"](4, 8))
+def calculator():
+    num1 = float(input("Enter first number: "))
+    for symbol in operations:
+        print(symbol)
+    should_continue = True
+    while should_continue:
+        operation_symbol = input("Pick an operation:\n ")
+        num2 = float(input("Enter next number:\n "))
+        calculation_function = operations[operation_symbol]
+        answer = calculation_function(num1, num2)
+        print(f"{num1} {operation_symbol} {num2} = {answer}")
+        if input(f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new calculation: ") == 'y':
+            num1 = answer
+        else:
+            should_continue = False
+
+# Main program loop
+while True:
+    calculator()
+    if input("Type 'q' to quit or any other key to start a new calculation: ") == 'q':
+        break
