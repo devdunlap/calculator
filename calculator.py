@@ -1,8 +1,20 @@
-def is_leap_year(year):
-    """Check if a year is a leap year."""
-    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
-        return True
-    return False
+import art
+print(art.logo)
 
-print(is_leap_year(2020))  # True
-print(is_leap_year(2021))  # False
+def add(n1, n2):
+    return n1 + n2
+def subtract(n1, n2):
+    return n1 - n2
+def multiply(n1, n2):
+    return n1 * n2
+def divide(n1, n2):
+    if n2 != 0:
+        return n1 / n2
+    return None
+operations = {
+    "+": add,
+    "-": subtract,
+    "*": multiply,
+    "/": divide
+}
+print(operations ["*"](4, 8))
